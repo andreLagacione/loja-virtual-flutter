@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "402385642131",
+    "firebase_url": "https://loja-virtual-flutter-b14ad.firebaseio.com",
+    "project_id": "loja-virtual-flutter-b14ad",
+    "storage_bucket": "loja-virtual-flutter-b14ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:402385642131:android:0e09fcc26a9f046df56366",
+        "android_client_info": {
+          "package_name": "br.com.lagacione.lojavirtual"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "402385642131-sb0k6jsv2n1rnheuj6r961411o0p593p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjR3CMA5ahQ8sgPF8c51TiNu9GxMaDW1M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "402385642131-sb0k6jsv2n1rnheuj6r961411o0p593p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
