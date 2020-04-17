@@ -78,7 +78,7 @@ class CustomDrawer extends StatelessWidget {
               ),
               Divider(),
               DrawerTile(Icons.home, 'Início', this.pageController, 0),
-              DrawerTile(Icons.list, 'Produtos', this.pageController, 1),
+              DrawerTile(Icons.list, 'Categorias', this.pageController, 1),
               DrawerTile(Icons.location_on, 'Lojas', this.pageController, 2),
               DrawerTile(Icons.playlist_add_check, 'Meus Pedidos', this.pageController, 3),
             ],
