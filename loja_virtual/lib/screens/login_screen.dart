@@ -3,111 +3,157 @@ import 'package:lojavirtual/models/user_model.dart';
 import 'package:lojavirtual/screens/signup_screen.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
 
+class _LoginScreenState extends State<LoginScreen> {
+  final _emailController = TextEditingController();
+  final _passController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Entrar'),
-        centerTitle: true,
-        actions: <Widget>[
-          FlatButton(
-            child: Text(
-              'CRIAR CONTA',
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.white
+      key: _scaffoldKey,
+        appBar: AppBar(
+          title: Text('Entrar'),
+          centerTitle: true,
+          actions: <Widget>[
+            FlatButton(
+              child: Text(
+                'CRIAR CONTA',
+                style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.white
+                ),
               ),
-            ),
-            onPressed: () {
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                    builder: (context) => SignupScreen()
-                )
+              onPressed: () {
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                        builder: (context) => SignupScreen()
+                    )
+                );
+              },
+            )
+          ],
+        ),
+        body: ScopedModelDescendant<UserModel>(
+          builder: (context, child, model) {
+            if (model.isLoading) {
+              return Center(
+                child: CircularProgressIndicator(),
               );
-            },
-          )
-        ],
-      ),
-      body: ScopedModelDescendant<UserModel>(
-        builder: (context, child, model) {
-          if (model.isLoading) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
+            }
 
-          return Form(
-            key: _formKey,
-            child: ListView(
-              padding: EdgeInsets.all(16),
-              children: <Widget>[
-                TextFormField(
-                  decoration: InputDecoration(
-                      hintText: 'E-mail'
-                  ),
-                  keyboardType: TextInputType.emailAddress,
-                  validator: (text) {
-                    if (text.isEmpty || !text.contains('@')) {
-                      return 'E-mail inválido';
-                    }
-                  },
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-                TextFormField(
+            return Form(
+              key: _formKey,
+              child: ListView(
+                padding: EdgeInsets.all(16),
+                children: <Widget>[
+                  TextFormField(
+                    controller: _emailController,
                     decoration: InputDecoration(
-                        hintText: 'Senha'
+                        hintText: 'E-mail'
                     ),
-                    obscureText: true,
+                    keyboardType: TextInputType.emailAddress,
                     validator: (text) {
-                      if (text.isEmpty || text.length < 6) {
-                        return 'Senha inválida';
+                      if (text.isEmpty || !text.contains('@')) {
+                        return 'E-mail inválido';
                       }
-                    }
-                ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: FlatButton(
-                    onPressed: () {
-
                     },
-                    child: Text(
-                      'Esqueci minha senha',
-                      textAlign: TextAlign.right,
-                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-                SizedBox(
-                  height: 44,
-                  child: RaisedButton(
-                    child: Text(
-                      'Entrar',
-                      style: TextStyle(
-                          fontSize: 10,
-                          color: Colors.white
+                  SizedBox(
+                    height: 16,
+                  ),
+                  TextFormField(
+                      controller: _passController,
+                      decoration: InputDecoration(
+                          hintText: 'Senha'
+                      ),
+                      obscureText: true,
+                      validator: (text) {
+                        if (text.isEmpty || text.length < 6) {
+                          return 'Senha inválida';
+                        }
+                      }
+                  ),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: FlatButton(
+                      onPressed: () {
+                        if (_emailController.text.isEmpty) {
+                          _scaffoldKey.currentState.showSnackBar(
+                            SnackBar(
+                              content: Text('Informe seu e-mail para recuperar a asenha.'),
+                              backgroundColor: Colors.redAccent,
+                              duration: Duration(seconds: 3),
+                            ),
+                          );
+                        } else {
+                          model.recoverPass(_emailController.text.trim());
+                          _scaffoldKey.currentState.showSnackBar(
+                            SnackBar(
+                              content: Text('Confira seu e-mail!'),
+                              backgroundColor: Theme.of(context).primaryColor,
+                              duration: Duration(seconds: 3),
+                            ),
+                          );
+                        }
+                      },
+                      child: Text(
+                        'Esqueci minha senha',
+                        textAlign: TextAlign.right,
                       ),
                     ),
-                    color: Theme.of(context).primaryColor,
-                    onPressed: () {
-                      if (_formKey.currentState.validate()) {
-                        model.signIn();
-                      }
-                    },
                   ),
-                )
-              ],
-            ),
-          );
-        },
-      )
+                  SizedBox(
+                    height: 16,
+                  ),
+                  SizedBox(
+                    height: 44,
+                    child: RaisedButton(
+                      child: Text(
+                        'Entrar',
+                        style: TextStyle(
+                            fontSize: 10,
+                            color: Colors.white
+                        ),
+                      ),
+                      color: Theme.of(context).primaryColor,
+                      onPressed: () {
+                        if (_formKey.currentState.validate()) {
+                          model.signIn(
+                              email: _emailController.text.trim(),
+                              pass: _passController.text.trim(),
+                              onSuccess: _onSuccess,
+                              onFail: _onFail
+                          );
+                        }
+                      },
+                    ),
+                  )
+                ],
+              ),
+            );
+          },
+        )
+    );
+  }
+
+  void _onSuccess() {
+    Navigator.of(context).pop();
+  }
+
+  void _onFail() {
+    _scaffoldKey.currentState.showSnackBar(
+      SnackBar(
+        content: Text('Erro ao entrar!'),
+        backgroundColor: Colors.redAccent,
+        duration: Duration(seconds: 3),
+      ),
     );
   }
 }

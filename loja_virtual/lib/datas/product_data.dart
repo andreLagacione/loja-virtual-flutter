@@ -18,4 +18,13 @@ class ProductData {
     this.images = data['images'];
     this.sizes = data['sizes'];
   }
+
+  Map<String, dynamic> toResumedMap() {
+    return {
+      'title': this.title,
+      'description': this.description,
+      'price': this.price
+    };
+  }
+
 }
