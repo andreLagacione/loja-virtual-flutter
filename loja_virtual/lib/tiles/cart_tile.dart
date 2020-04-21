@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lojavirtual/datas/cart_product.dart';
 import 'package:lojavirtual/datas/product_data.dart';
+import 'package:lojavirtual/models/cart_model.dart';
 
 class CartTile extends StatelessWidget {
 
@@ -12,6 +13,8 @@ class CartTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget _buildContent() {
+      CartModel.of(context).updatePrices();
+
       return Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
@@ -58,7 +61,7 @@ class CartTile extends StatelessWidget {
                         icon: Icon(Icons.remove),
                         color: Theme.of(context).primaryColor,
                         onPressed: cartProduct.quantity > 1 ? () {
-
+                          CartModel.of(context).decProduct(cartProduct);
                         } : null,
                       ),
                       Text(cartProduct.quantity.toString()),
@@ -66,14 +69,14 @@ class CartTile extends StatelessWidget {
                         icon: Icon(Icons.add),
                         color: Theme.of(context).primaryColor,
                         onPressed: () {
-
+                          CartModel.of(context).incProduct(cartProduct);
                         },
                       ),
                       FlatButton(
                         child: Text('Remover'),
                         textColor: Colors.grey[500],
                         onPressed: () {
-
+                          CartModel.of(context).removeCartItem(cartProduct);
                         },
                       )
                     ],
