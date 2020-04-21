@@ -27,7 +27,7 @@ class CartProduct {
       'pid': this.pid,
       'quantity': this.quantity,
       'size': this.size,
-      // 'product': productData.toResumedMap()
+      'product': productData.toResumedMap()
     };
   }
 
