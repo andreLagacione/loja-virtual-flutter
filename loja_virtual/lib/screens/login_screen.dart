@@ -26,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Text(
                 'CRIAR CONTA',
                 style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 15.0,
                     color: Colors.white
                 ),
               ),
@@ -51,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
             return Form(
               key: _formKey,
               child: ListView(
-                padding: EdgeInsets.all(16),
+                padding: EdgeInsets.all(16.0),
                 children: <Widget>[
                   TextFormField(
                     controller: _emailController,
@@ -107,18 +107,19 @@ class _LoginScreenState extends State<LoginScreen> {
                         'Esqueci minha senha',
                         textAlign: TextAlign.right,
                       ),
+                      padding: EdgeInsets.zero,
                     ),
                   ),
                   SizedBox(
-                    height: 16,
+                    height: 16.0,
                   ),
                   SizedBox(
-                    height: 44,
+                    height: 44.0,
                     child: RaisedButton(
                       child: Text(
                         'Entrar',
                         style: TextStyle(
-                            fontSize: 10,
+                            fontSize: 18.0,
                             color: Colors.white
                         ),
                       ),

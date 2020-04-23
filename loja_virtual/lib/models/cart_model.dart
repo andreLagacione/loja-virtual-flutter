@@ -67,7 +67,7 @@ class CartModel extends Model {
   }
 
   double getProductsPrice() {
-    double price = 0;
+    double price = 0.0;
 
     for (CartProduct c in products) {
       if (c.productData != null) {
@@ -79,7 +79,7 @@ class CartModel extends Model {
   }
 
   double getDiscount() {
-    return getProductsPrice() * discountPercentage / 100;
+    return getProductsPrice() * discountPercentage / 100.0;
   }
 
   double getShipPrice() {
@@ -91,7 +91,7 @@ class CartModel extends Model {
   }
 
   Future<String> finishOrder() async {
-    if (products.length == 0) {
+    if (products.length == 0.0) {
       return null;
     }
 

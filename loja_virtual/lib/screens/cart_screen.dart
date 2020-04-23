@@ -18,15 +18,15 @@ class CartScreen extends StatelessWidget {
         title: Text('Meu carrinho'),
         actions: <Widget>[
           Container(
-            padding: EdgeInsets.only(right: 8),
+            padding: EdgeInsets.only(right: 8.0),
             alignment: Alignment.center,
             child: ScopedModelDescendant<CartModel>(
               builder: (context, child, model) {
                 int p = model.products.length;
                 return Text(
-                  "${p ?? 0} ${p == 1 ? 'ITEM' : 'ITEMS'}",
+                  "${p ?? 0.0} ${p == 1.0 ? 'ITEM' : 'ITEMS'}",
                   style: TextStyle(
-                    fontSize: 17
+                    fontSize: 17.0
                   ),
                 );
               },
@@ -42,31 +42,31 @@ class CartScreen extends StatelessWidget {
             );
           } else if (!UserModel.of(context).isLoggedIn()) {
             return Container(
-              padding: EdgeInsets.all(15),
+              padding: EdgeInsets.all(15.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Icon(
                     Icons.remove_shopping_cart,
-                    size: 80,
+                    size: 80.0,
                     color: Theme.of(context).primaryColor,
                   ),
-                  SizedBox(height: 16,),
+                  SizedBox(height: 16.0,),
                   Text(
                     'Faça o login para adiciona os produtos!',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 20.0,
                       fontWeight: FontWeight.bold
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 16,),
+                  SizedBox(height: 16.0,),
                   RaisedButton(
                     child: Text(
                       'Entrar',
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 18.0,
                         color: Colors.white
                       ),
                     ),
@@ -87,7 +87,7 @@ class CartScreen extends StatelessWidget {
               child: Text(
                 'Nenhum produto no carrinho!',
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 20.0,
                   fontWeight: FontWeight.bold
                 ),
                 textAlign: TextAlign.center,

@@ -17,7 +17,7 @@ class ShipCard extends StatelessWidget {
         leading: Icon(Icons.location_on),
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.all(8),
+            padding: EdgeInsets.all(8.0),
             child: TextFormField(
               decoration: InputDecoration(
                   border: OutlineInputBorder(),

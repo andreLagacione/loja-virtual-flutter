@@ -29,7 +29,7 @@ class HomeTab extends StatelessWidget {
               floating: true,
               snap: true,
               backgroundColor: Colors.transparent,
-              elevation: 0,
+              elevation: 0.0,
               flexibleSpace: FlexibleSpaceBar(
                 title: const Text('Novidades'),
                 centerTitle: true,
@@ -41,7 +41,7 @@ class HomeTab extends StatelessWidget {
                 if (!snapshot.hasData) {
                   return SliverToBoxAdapter(
                     child: Container(
-                      height: 200,
+                      height: 200.0,
                       alignment: Alignment.center,
                       child: CircularProgressIndicator(
                         valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
@@ -53,8 +53,8 @@ class HomeTab extends StatelessWidget {
                 else {
                   return SliverStaggeredGrid.count(
                     crossAxisCount: 2,
-                    mainAxisSpacing: 1,
-                    crossAxisSpacing: 1,
+                    mainAxisSpacing: 1.0,
+                    crossAxisSpacing: 1.0,
                     staggeredTiles: snapshot.data.documents.map((doc) {
                       return StaggeredTile.count(
                         doc.data['x'],

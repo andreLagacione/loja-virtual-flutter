@@ -42,11 +42,11 @@ class CategoryScreen extends StatelessWidget {
                 physics: NeverScrollableScrollPhysics(),
                 children: <Widget>[
                   GridView.builder(
-                    padding: EdgeInsets.all(4),
+                    padding: EdgeInsets.all(4.0),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      mainAxisSpacing: 4,
-                      crossAxisSpacing: 4,
+                      mainAxisSpacing: 4.0,
+                      crossAxisSpacing: 4.0,
                       childAspectRatio: 0.65
                     ),
                     itemCount: snapshot.data.documents.length,
@@ -57,7 +57,7 @@ class CategoryScreen extends StatelessWidget {
                     },
                   ),
                   ListView.builder(
-                      padding: EdgeInsets.all(4),
+                      padding: EdgeInsets.all(4.0),
                       itemCount: snapshot.data.documents.length,
                       itemBuilder: (context, index) {
                         ProductData data = ProductData.fromDocument(snapshot.data.documents[index]);

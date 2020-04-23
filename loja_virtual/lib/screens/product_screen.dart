@@ -40,22 +40,22 @@ class _ProductScreenState extends State<ProductScreen> {
               images: this.product.images.map((url) {
                 return NetworkImage(url);
               }).toList(),
-              dotSize: 4,
-              dotSpacing: 15,
+              dotSize: 4.0,
+              dotSpacing: 15.0,
               dotBgColor: Colors.transparent,
               dotColor: primaryColor,
               autoplay: false,
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Text(
                   this.product.title,
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 20.0,
                     fontWeight: FontWeight.w500
                   ),
                   maxLines: 3,
@@ -63,29 +63,29 @@ class _ProductScreenState extends State<ProductScreen> {
                 Text(
                   'R\$ ${this.product.price.toStringAsFixed(2)}',
                   style: TextStyle(
-                    fontSize: 22,
+                    fontSize: 22.0,
                     fontWeight: FontWeight.bold,
                     color: primaryColor
                   ),
                 ),
                 SizedBox(
-                  height: 16,
+                  height: 16.0,
                 ),
                 Text(
                   'Tamanho',
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 16.0,
                     fontWeight: FontWeight.w500
                   ),
                 ),
                 SizedBox(
-                  height: 34,
+                  height: 34.0,
                   child: GridView(
                     padding: EdgeInsets.symmetric(vertical: 4),
                     scrollDirection: Axis.horizontal,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 1,
-                      mainAxisSpacing: 8,
+                      mainAxisSpacing: 8.0,
                       childAspectRatio: 0.5
                     ),
                     children: this.product.sizes.map((sizeItem) {
@@ -98,14 +98,14 @@ class _ProductScreenState extends State<ProductScreen> {
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(
-                              Radius.circular(4)
+                              Radius.circular(4.0)
                             ),
                             border: Border.all(
                               color: sizeItem == this.sizeSelected ? primaryColor : Colors.grey[500],
-                              width: 3
+                              width: 3.0
                             )
                           ),
-                          width: 50,
+                          width: 50.0,
                           alignment: Alignment.center,
                           child: Text(
                             sizeItem,
@@ -119,10 +119,10 @@ class _ProductScreenState extends State<ProductScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 16,
+                  height: 16.0,
                 ),
                 SizedBox(
-                  height: 44,
+                  height: 44.0,
                   child: RaisedButton(
                     onPressed: this.sizeSelected == null ? null : () {
                       if (UserModel.of(context).isLoggedIn()) {
@@ -148,7 +148,7 @@ class _ProductScreenState extends State<ProductScreen> {
                     child: Text(
                       UserModel.of(context).isLoggedIn() ? 'Adicionar ao carrinho' : 'Entre para compar',
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 18.0,
                         color: Colors.white
                       ),
                     ),
@@ -156,19 +156,19 @@ class _ProductScreenState extends State<ProductScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 16,
+                  height: 16.0,
                 ),
                 Text(
                   'Descrição',
                   style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.0,
                       fontWeight: FontWeight.w500
                   ),
                 ),
                 Text(
                   this.product.description,
                   style: TextStyle(
-                      fontSize: 16
+                      fontSize: 16.0
                   ),
                 )
               ],

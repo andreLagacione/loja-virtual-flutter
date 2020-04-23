@@ -35,7 +35,7 @@ class _SignupScreenState extends State<SignupScreen> {
         return Form(
           key: _formKey,
           child: ListView(
-            padding: EdgeInsets.all(16),
+            padding: EdgeInsets.all(16.0),
             children: <Widget>[
               TextFormField(
                 controller: _nameController,
@@ -49,7 +49,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 },
               ),
               SizedBox(
-                height: 16,
+                height: 16.0,
               ),
               TextFormField(
                 controller: _emailController,
@@ -64,7 +64,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 },
               ),
               SizedBox(
-                height: 16,
+                height: 16.0,
               ),
               TextFormField(
                   controller: _passController,
@@ -93,15 +93,15 @@ class _SignupScreenState extends State<SignupScreen> {
                   }
               ),
               SizedBox(
-                height: 16,
+                height: 16.0,
               ),
               SizedBox(
-                height: 44,
+                height: 44.0,
                 child: RaisedButton(
                   child: Text(
                     'Criar conta',
                     style: TextStyle(
-                        fontSize: 10,
+                        fontSize: 18.0,
                         color: Colors.white
                     ),
                   ),

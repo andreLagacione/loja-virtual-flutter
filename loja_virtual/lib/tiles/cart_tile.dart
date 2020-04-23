@@ -19,8 +19,8 @@ class CartTile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           Container(
-            padding: EdgeInsets.all(8),
-            width: 120,
+            padding: EdgeInsets.all(8.0),
+            width: 120.0,
             child: Image.network(
               cartProduct.productData.images[0],
               fit: BoxFit.cover,
@@ -28,7 +28,7 @@ class CartTile extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              padding: EdgeInsets.all(8),
+              padding: EdgeInsets.all(8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -36,7 +36,7 @@ class CartTile extends StatelessWidget {
                   Text(
                     cartProduct.productData.title,
                     style: TextStyle(
-                        fontSize: 17,
+                        fontSize: 17.0,
                         fontWeight: FontWeight.w500
                     ),
                   ),
@@ -50,7 +50,7 @@ class CartTile extends StatelessWidget {
                     'R\$ ${cartProduct.productData.price.toStringAsFixed(2)}',
                     style: TextStyle(
                       color: Theme.of(context).primaryColor,
-                      fontSize: 16,
+                      fontSize: 16.0,
                       fontWeight: FontWeight.bold
                     ),
                   ),
@@ -91,8 +91,8 @@ class CartTile extends StatelessWidget {
 
     return Card(
       margin: EdgeInsets.symmetric(
-        horizontal: 8,
-        vertical: 4
+        horizontal: 8.0,
+        vertical: 4.0
       ),
       child: cartProduct.productData == null ?
         FutureBuilder<DocumentSnapshot>(
@@ -103,7 +103,7 @@ class CartTile extends StatelessWidget {
               return _buildContent();
             } else {
               return Container(
-                height: 70,
+                height: 70.0,
                 child: CircularProgressIndicator(),
                 alignment: Alignment.center,
               );

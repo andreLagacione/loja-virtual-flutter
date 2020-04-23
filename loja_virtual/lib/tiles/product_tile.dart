@@ -53,7 +53,7 @@ class ProductTile extends StatelessWidget {
           child: Image.network(
             product.images[0],
             fit: BoxFit.cover,
-            height: 250,
+            height: 250.0,
           ),
         ),
         Flexible(
@@ -66,7 +66,7 @@ class ProductTile extends StatelessWidget {
 
   Widget buildText(String title, double price, bool centerText) {
     return Container(
-      padding: EdgeInsets.all(8),
+      padding: EdgeInsets.all(8.0),
       child: Column(
         crossAxisAlignment: centerText ? CrossAxisAlignment.center : CrossAxisAlignment.start,
         children: <Widget>[
@@ -80,7 +80,7 @@ class ProductTile extends StatelessWidget {
             'R\$ ${price.toStringAsFixed(2)}',
             style: TextStyle(
                 color: Color.fromARGB(255, 4, 125, 141),
-                fontSize: 17,
+                fontSize: 17.0,
                 fontWeight: FontWeight.bold
             ),
           ),

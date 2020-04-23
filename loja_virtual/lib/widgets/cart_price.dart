@@ -11,9 +11,9 @@ class CartPrice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
       child: Container(
-        padding: EdgeInsets.all(16),
+        padding: EdgeInsets.all(16.0),
         child: ScopedModelDescendant<CartModel>(
           builder: (context, child, model) {
 
@@ -31,7 +31,7 @@ class CartPrice extends StatelessWidget {
                     fontWeight: FontWeight.w500
                   ),
                 ),
-                SizedBox(height: 12,),
+                SizedBox(height: 12.0,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
@@ -56,7 +56,7 @@ class CartPrice extends StatelessWidget {
                   ],
                 ),
                 Divider(),
-                SizedBox(height: 12,),
+                SizedBox(height: 12.0,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
@@ -70,12 +70,12 @@ class CartPrice extends StatelessWidget {
                       'R\$ ${(price + ship - discount).toStringAsFixed(2)}',
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
-                        fontSize: 16
+                        fontSize: 16.0
                       ),
                     )
                   ],
                 ),
-                SizedBox(height: 12,),
+                SizedBox(height: 12.0,),
                 RaisedButton(
                   child: Text('Finalizar pedido'),
                   textColor: Colors.white,
