@@ -50,7 +50,7 @@ class PlaceTile extends StatelessWidget {
                 textColor: Colors.blue,
                 padding: EdgeInsets.zero,
                 onPressed: () {
-                  launch('https://www.google.com/maps/search?api=1&query=${snapshot.data['lat']},${snapshot.data['long']}');
+                  launch('https://www.google.com/maps/search/?api=1&query=${snapshot.data['lat']},${snapshot.data['long']}');
                 },
               ),
               FlatButton(
